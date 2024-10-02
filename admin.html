@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Trade Position Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <div id="firebaseui-auth-container"></div>
+        <div id="admin-content" style="display: none;">
+            <form id="add-position-form">
+                <input type="text" id="position" placeholder="Enter position (e.g., MSFT 11/15 450c)" required>
+                <select id="color" required>
+                    <option value="green">Green (Profit)</option>
+                    <option value="red">Red (Loss)</option>
+                </select>
+                <button type="submit">Add Position</button>
+            </form>
+            <ul id="position-list"></ul>
+            <button id="sign-out">Sign Out</button>
+        </div>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>
