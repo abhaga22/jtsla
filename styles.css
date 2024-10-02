@@ -1,6 +1,8 @@
 :root {
     --green: #4CAF50;
     --red: #F44336;
+    --blue: #2196F3;
+    --black: #333333;
     --background: #f0f4f8;
     --card-bg: #ffffff;
     --text: #333333;
@@ -82,6 +84,16 @@ button:hover {
 #position-list li.red {
     background-color: rgba(244, 67, 54, 0.1);
     border-left: 5px solid var(--red);
+}
+
+#position-list li.blue {
+    background-color: rgba(33, 150, 243, 0.1);
+    border-left: 5px solid var(--blue);
+}
+
+#position-list li.black {
+    background-color: rgba(51, 51, 51, 0.1);
+    border-left: 5px solid var(--black);
 }
 
 .position-text {

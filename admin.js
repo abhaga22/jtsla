@@ -108,7 +108,9 @@ function loadAdminFunctionality() {
             toggleBtn.textContent = 'Toggle Color';
             toggleBtn.className = 'toggle-btn';
             toggleBtn.onclick = () => {
-                const newColor = position.color === 'green' ? 'red' : 'green';
+                const colors = ['green', 'red', 'blue', 'black'];
+                const currentIndex = colors.indexOf(position.color);
+                const newColor = colors[(currentIndex + 1) % colors.length];
                 database.ref('positions/' + childSnapshot.key).update({ color: newColor });
             };
             
