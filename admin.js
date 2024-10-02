@@ -45,8 +45,7 @@ ui.start('#firebaseui-auth-container', uiConfig);
 
 
 function checkAdminAndLoadContent(userEmail) {
-    // Check if the user's email matches the admin email
-    if (userEmail === 'agarwal.abhinav22@gmail.com') {
+    if (userEmail === 'jahaanpriv@gmail.com') {
         document.getElementById('admin-content').style.display = 'block';
         document.getElementById('firebaseui-auth-container').style.display = 'none';
         loadAdminFunctionality();
