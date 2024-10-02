@@ -12,14 +12,15 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Initialize the FirebaseUI Widget using Firebase
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 var uiConfig = {
     callbacks: {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
             // User successfully signed in.
-            checkAdminAndLoadContent(authResult.user);
+            // You can get the user's email here:
+            const userEmail = authResult.user.email;
+            checkAdminAndLoadContent(userEmail);
             return false;
         },
         uiShown: function() {
@@ -42,15 +43,19 @@ var uiConfig = {
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
 
-function checkAdminAndLoadContent(user) {
-    // Replace 'admin@yourdomain.com' with the email of your admin
-    if (user.email === 'admin@yourdomain.com') {
+
+function checkAdminAndLoadContent(userEmail) {
+    // Check if the user's email matches the admin email
+    if (userEmail === 'agarwal.abhinav22@gmail.com') {
         document.getElementById('admin-content').style.display = 'block';
         document.getElementById('firebaseui-auth-container').style.display = 'none';
         loadAdminFunctionality();
     } else {
         alert('You are not authorized to access this page.');
-        firebase.auth().signOut();
+        firebase.auth().signOut().then(() => {
+            document.getElementById('admin-content').style.display = 'none';
+            document.getElementById('firebaseui-auth-container').style.display = 'block';
+        });
     }
 }
 
@@ -129,7 +134,7 @@ function loadAdminFunctionality() {
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         // User is signed in
-        checkAdminAndLoadContent(user);
+        checkAdminAndLoadContent(user.email);
     } else {
         // No user is signed in
         document.getElementById('admin-content').style.display = 'none';
