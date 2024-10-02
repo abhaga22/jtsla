@@ -1,7 +1,7 @@
 // Firebase configuration (you'll need to replace this with your own config)
 const firebaseConfig = {
     apiKey: "AIzaSyClu-KtfMwnUGDBprTUI3hPE3XDybdVdXc",
-    authDomain: "jtsla.com",
+    authDomain: "jtsla-5.firebaseapp.com", // Use your Firebase project domain, not your custom domain
     projectId: "jtsla-5",
     storageBucket: "jtsla-5.appspot.com",
     messagingSenderId: "307455132051",
