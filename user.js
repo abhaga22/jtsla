@@ -53,7 +53,7 @@ function loadUserContent() {
         snapshot.forEach((childSnapshot) => {
             const position = childSnapshot.val();
             const li = document.createElement('li');
-            li.className = position.color;
+            li.className = position.color; // This will apply the color class
             li.textContent = position.position;
             positionList.appendChild(li);
         });
@@ -65,9 +65,11 @@ firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         // User is signed in
         document.getElementById('user-content').style.display = 'block';
+        document.getElementById('firebaseui-auth-container').style.display = 'none';
         loadUserContent();
     } else {
         // No user is signed in
         document.getElementById('user-content').style.display = 'none';
+        document.getElementById('firebaseui-auth-container').style.display = 'block';
     }
 });
