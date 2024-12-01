@@ -12,19 +12,64 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <style>
+        /* Dark theme overrides for Firebase UI */
+        .firebaseui-container {
+            background: #1a1a1a !important;
+        }
+        .firebaseui-title {
+            color: #ffffff !important;
+        }
+        .firebaseui-text {
+            color: #ffffff !important;
+        }
+        .firebaseui-link {
+            color: #635bff !important;
+        }
+        .mdl-button--raised.mdl-button--colored {
+            background: #635bff !important;
+        }
+        
         .legend {
             margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
+            padding: 15px;
+            border: 1px solid #333;
             border-radius: 5px;
+            background-color: #1a1a1a;
+        }
+        .legend h3 {
+            color: #ffffff;
+            margin-top: 0;
         }
         .legend-item {
-            margin: 5px 0;
+            margin: 8px 0;
+            color: #ffffff;
         }
-        .red { color: red; }
-        .green { color: green; }
-        .blue { color: blue; }
-        .black { color: black; }
+        .red { color: #ff4d4d; }
+        .green { color: #4CAF50; }
+        .blue { color: #2196F3; }
+        .black { color: #ffffff; }
+        
+        #position-list li {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            color: #ffffff;
+            margin-bottom: 10px;
+            padding: 12px;
+            border-radius: 5px;
+        }
+        
+        #position-list li.green {
+            border-left: 4px solid #4CAF50;
+        }
+        #position-list li.red {
+            border-left: 4px solid #ff4d4d;
+        }
+        #position-list li.blue {
+            border-left: 4px solid #2196F3;
+        }
+        #position-list li.black {
+            border-left: 4px solid #ffffff;
+        }
     </style>
 </head>
 
@@ -35,10 +80,10 @@
         <div id="user-content" style="display: none;">
             <div class="legend">
                 <h3>Color Legend:</h3>
-                <div class="legend-item"><span class="green">Green</span> = Position is in profit</div>
-                <div class="legend-item"><span class="red">Red</span> = Position is in loss</div>
-                <div class="legend-item"><span class="blue">Blue</span> = Take profit / Set stop loss</div>
-                <div class="legend-item"><span class="black">Black</span> = Cut losses</div>
+                <div class="legend-item"><span class="green">●</span> Position is in profit</div>
+                <div class="legend-item"><span class="red">●</span> Position is in loss</div>
+                <div class="legend-item"><span class="blue">●</span> Take profit / Set stop loss</div>
+                <div class="legend-item"><span class="black">●</span> Cut losses</div>
             </div>
             <ul id="position-list"></ul>
         </div>

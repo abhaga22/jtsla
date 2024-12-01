@@ -1,12 +1,13 @@
 :root {
     --green: #4CAF50;
-    --red: #F44336;
+    --red: #ff4d4d;
     --blue: #2196F3;
-    --black: #333333;
-    --background: #020507;
-    --card-bg: #ffffff;
-    --text: #333333;
-    --border: #e0e0e0;
+    --white: #ffffff;
+    --background: #000000;
+    --card-bg: #1a1a1a;
+    --text: #ffffff;
+    --border: #333333;
+    --hover: #2a2a2a;
 }
 
 body {
@@ -24,7 +25,7 @@ body {
     padding: 2rem;
     background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -64,36 +65,36 @@ button:hover {
 #position-list {
     list-style-type: none;
     padding: 0;
+    margin-top: 20px;
 }
 
 #position-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 4px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
     transition: all 0.3s ease;
 }
 
 #position-list li.green {
-    background-color: rgba(76, 175, 80, 0.1);
-    border-left: 5px solid var(--green);
+    border-left: 4px solid var(--green);
 }
 
 #position-list li.red {
-    background-color: rgba(244, 67, 54, 0.1);
-    border-left: 5px solid var(--red);
+    border-left: 4px solid var(--red);
 }
 
 #position-list li.blue {
-    background-color: rgba(33, 150, 243, 0.1);
-    border-left: 5px solid var(--blue);
+    border-left: 4px solid var(--blue);
 }
 
 #position-list li.black {
-    background-color: rgba(51, 51, 51, 0.1);
-    border-left: 5px solid var(--black);
+    border-left: 4px solid var(--white);
+}
+
+#position-list li:hover {
+    background-color: var(--hover);
 }
 
 .position-text {
@@ -109,6 +110,10 @@ button:hover {
 .remove-btn, .toggle-btn {
     padding: 0.3rem 0.6rem;
     font-size: 0.9rem;
+}
+
+button:hover {
+    background-color: #4b44d1;
 }
 
 .remove-btn {
@@ -141,6 +146,7 @@ button:hover {
 /* FirebaseUI overrides */
 .firebaseui-container {
     max-width: 100% !important;
+    background-color: var(--card-bg) !important;
 }
 
 .firebaseui-card-content {
@@ -149,4 +155,9 @@ button:hover {
 
 .firebaseui-idp-button {
     max-width: 100% !important;
+}
+
+.firebaseui-title,
+.firebaseui-text {
+    color: var(--text) !important;
 }
